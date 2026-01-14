@@ -15,7 +15,7 @@
         <div class="container">
             <h1>🏠 Tower Bot AI</h1>
             <div class="tower-image">
-                <img id="towerRushImage" src="images/tower-rush.jpg" alt="Tower Rush">
+                <img id="towerRushImage" src="images/tower-rush.jpg" alt="Tower Rush" onerror="this.style.display='none'; console.error('Не удалось загрузить изображение: images/tower-rush.jpg');">
             </div>
             <div class="password-section">
                 <div id="loadingIndicator" style="display: block; text-align: center; margin: 20px 0;">
@@ -31,9 +31,6 @@
     <div id="mainMenuScreen" class="screen">
         <div class="container">
             <h2>TOWER BOT AI 🏠</h2>
-            <div class="tower-image">
-                <img id="mainMenuImage" src="images/tsdss4.jpg" alt="Tower Rush">
-            </div>
             <div class="menu-buttons">
                 <button onclick="goToSignals()" class="btn-primary signal-btn">Получить сигнал➡️</button>
                 <button onclick="contactSupport()" class="btn-menu">Написать в поддержку</button>
