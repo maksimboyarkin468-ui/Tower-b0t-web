@@ -1,0 +1,336 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #0a0a0a;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.screen {
+    display: none;
+    width: 100%;
+    max-width: 600px;
+}
+
+.screen.active {
+    display: block;
+}
+
+.container {
+    background: #2a2a2a;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    position: relative;
+    border: 2px solid transparent;
+}
+
+.container::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: 20px;
+    padding: 2px;
+    background: linear-gradient(135deg, #4a90e2 0%, #6bb3ff 30%, #ff8c42 70%, #ff6b35 100%);
+    background-size: 200% 200%;
+    animation: gradientShift 3s ease infinite;
+    -webkit-mask: 
+        linear-gradient(#fff 0 0) content-box, 
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    z-index: -1;
+}
+
+h1 {
+    text-align: center;
+    color: #ffffff;
+    margin-bottom: 20px;
+    font-size: 28px;
+}
+
+h2 {
+    text-align: center;
+    color: #ffffff;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.tower-image {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.tower-image img {
+    max-width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.password-section {
+    text-align: center;
+}
+
+.info-text {
+    margin-bottom: 15px;
+    color: #cccccc;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.info-text.warning {
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.password-input {
+    width: 100%;
+    padding: 15px;
+    margin: 20px 0;
+    border: 2px solid #333;
+    border-radius: 10px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+    background: #1a1a1a;
+    color: #ffffff;
+}
+
+.password-input:focus {
+    outline: none;
+    border-color: #4a90e2;
+}
+
+.password-input::placeholder {
+    color: #666;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 18px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.btn-primary.signal-btn {
+    background: linear-gradient(135deg, #4a90e2 0%, #6bb3ff 30%, #ff8c42 70%, #ff6b35 100%);
+    background-size: 200% 200%;
+    animation: gradientShift 3s ease infinite;
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.btn-primary.signal-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+}
+
+.btn-secondary {
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 25%, #4a90e2 50%, #5ba3f5 75%, #6bb3ff 100%);
+    background-size: 200% 200%;
+    animation: blueGradientShift 4s ease infinite;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 18px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    width: 100%;
+    margin-top: 10px;
+}
+
+@keyframes blueGradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.btn-secondary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(74, 144, 226, 0.4);
+}
+
+.menu-buttons {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.btn-menu {
+    background: linear-gradient(135deg, #4a90e2 0%, #6bb3ff 30%, #ff8c42 70%, #ff6b35 100%);
+    background-size: 200% 200%;
+    animation: gradientShift 3s ease infinite;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 18px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    width: 100%;
+}
+
+.btn-menu:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 107, 53, 0.4);
+}
+
+.error-message {
+    color: #e74c3c;
+    margin-top: 15px;
+    font-size: 14px;
+    display: none;
+    white-space: pre-line;
+    text-align: left;
+    background: #1a1a1a;
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid #e74c3c;
+}
+
+.error-message.show {
+    display: block;
+}
+
+.signal-content {
+    margin: 30px 0;
+}
+
+.signal-image-container {
+    text-align: center;
+    margin-bottom: 20px;
+    position: relative;
+    min-height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loading-indicator {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #000000;
+    border-radius: 10px;
+    display: none; /* По умолчанию скрыт */
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+
+.spinner {
+    width: 60px;
+    height: 60px;
+    border: 4px solid #444;
+    border-top: 4px solid #888;
+    border-radius: 50%;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.signal-number {
+    width: 100%;
+    height: 100%;
+    background: #000000;
+    border-radius: 10px;
+    display: none; /* По умолчанию скрыт */
+    align-items: center;
+    justify-content: center;
+    font-size: 120px;
+    font-weight: bold;
+    color: #ffffff;
+    position: relative;
+    z-index: 5; /* Выше индикатора загрузки */
+    min-height: 300px;
+    transition: opacity 0.3s ease;
+}
+
+
+.buttons {
+    margin-top: 30px;
+}
+
+.instruction {
+    margin-top: 30px;
+    padding: 20px;
+    background: #1a1a1a;
+    border-radius: 10px;
+    font-size: 14px;
+    line-height: 1.8;
+    color: #cccccc;
+    border: 1px solid #2a2a2a;
+}
+
+.instruction p {
+    margin-bottom: 10px;
+}
+
+.instruction p:first-child {
+    font-weight: bold;
+    color: #ffffff;
+    font-size: 16px;
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 20px;
+    }
+    
+    h1 {
+        font-size: 24px;
+    }
+    
+    h2 {
+        font-size: 20px;
+    }
+}
+
