@@ -57,7 +57,7 @@ async function checkUserAccess() {
     
     // Пробуем проверить через API бота (только если бот размещен на публичном сервере)
     // Для локального бота API недоступен из веб-приложения на Netlify
-    const apiEndpoint = 'http://localhost:8080/api/check_user'; // Замените на публичный URL вашего сервера с ботом
+    const apiEndpoint = 'https://tower-bot-telegram.onrender.com/api/check_user'; // Публичный URL сервера с ботом на Render
     
     // Проверяем, можем ли мы обратиться к API
     // Если веб-приложение на Netlify, API на localhost недоступен
